@@ -52,6 +52,9 @@ dependencies {
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
+    annotationProcessor "android.arch.persistence.room:compiler:$persistance_room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
     // MVVM View Model
     // Lifecycle components
     // For Kotlin use kapt instead of annotationProcessor
