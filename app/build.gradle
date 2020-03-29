@@ -58,11 +58,14 @@ dependencies {
     // MVVM View Model
     // Lifecycle components
     // For Kotlin use kapt instead of annotationProcessor
+    // ViewModel Kotlin support
     implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
     kapt "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$androidxArchVersion"
-
-// ViewModel Kotlin support
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
 }
