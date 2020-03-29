@@ -12,6 +12,7 @@ buildscript {
     ext.testRunner = '1.2.0'
     ext.archLifecycleVersion = '2.2.0'
     ext.androidxArchVersion = '2.1.0'
+    ext.retrofitVersion = '2.4.0'
 
     repositories {
         google()
