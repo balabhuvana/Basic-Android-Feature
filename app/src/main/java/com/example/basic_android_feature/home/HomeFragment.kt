@@ -3,18 +3,22 @@ package com.example.basic_android_feature.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.example.basic_android_feature.R
 import com.example.basic_android_feature.model.UserInfo
+import com.example.basic_android_feature.retrofit.RetrofitService
+import com.example.basic_android_feature.retrofit.UserModelRoot
 import com.example.basic_android_feature.room.UserDao
 import com.example.basic_android_feature.room.UserRoomDatabase
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
@@ -60,6 +64,10 @@ class HomeFragment : Fragment() {
                 selectAllUserInfo()
             }
         }
+
+        btnGetData.setOnClickListener {
+            getDataFromNetwork()
+        }
     }
 
     fun validateInputs(name: String, age: String, location: String): Boolean {
@@ -93,4 +101,28 @@ class HomeFragment : Fragment() {
             Log.i("---> ", "Place : " + user.userPlace)
         }
     }
+
+    private fun getDataFromNetwork() {
+        val retrofitService = RetrofitService()
+        GlobalScope.launch {
+            retrofitService.userApi.getUser().enqueue(object : Callback<UserModelRoot> {
+                override fun onFailure(call: Call<UserModelRoot>, t: Throwable) {
+                    Log.i("----> ", "Error : " + t.localizedMessage)
+                }
+
+                override fun onResponse(
+                    call: Call<UserModelRoot>,
+                    response: Response<UserModelRoot>
+                ) {
+                    var userModelRoot: UserModelRoot? = response.body()
+                    Log.i("--->", "User Id : " + userModelRoot?.data?.id)
+                    Log.i("--->", "First name : " + userModelRoot?.data?.firstName)
+                    Log.i("--->", "Last name : " + userModelRoot?.data?.lastName)
+                    Log.i("--->", "Email  : " + userModelRoot?.data?.email)
+                    Log.i("--->", "Avator  : " + userModelRoot?.data?.avatar)
+                }
+            })
+        }
+    }
+
 }
