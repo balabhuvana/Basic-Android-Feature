@@ -22,6 +22,7 @@ class SplashActivity : AppCompatActivity() {
     private fun launchScreen() {
         mHandler.postDelayed(Runnable {
             startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }, ConstantUtil.WAIT_FOR_DELAY)
     }
 
