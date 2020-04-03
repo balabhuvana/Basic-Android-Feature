@@ -7,77 +7,86 @@
     tools:context=".home.HomeFragment">
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvSample"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/text_size_12"
-        android:text="@string/enter_name"
+        android:layout_marginTop="@dimen/dimen_250"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:autofillHints="Enter name"
-        app:layout_constraintStart_toEndOf="@+id/tvName"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="@dimen/dimen_120"
+        android:layout_marginLeft="@dimen/dimen_80"
+        android:text="@string/userName"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSample" />
+
+    <TextView
+        android:id="@+id/tvUserNameValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Arun kumar"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toEndOf="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvSample" />
 
     <TextView
         android:id="@+id/tvAge"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/text_size_24"
-        android:text="@string/enter_age"
+        android:layout_marginStart="@dimen/dimen_120"
+        android:layout_marginLeft="@dimen/dimen_80"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="@string/age"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
-    <EditText
-        android:id="@+id/etAge"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/tvAgeValue"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tvName"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="35"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toEndOf="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <TextView
         android:id="@+id/tvPlace"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/text_size_24"
-        android:text="@string/enter_location"
+        android:layout_marginStart="@dimen/dimen_120"
+        android:layout_marginLeft="@dimen/dimen_80"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="@string/place"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAge" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAge" />
 
-    <EditText
-        android:id="@+id/etLocation"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/tvPlaceValue"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/text_size_12"
-        app:layout_constraintStart_toEndOf="@+id/tvPlace"
-        app:layout_constraintTop_toBottomOf="@+id/etAge" />
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="Salem"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toEndOf="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvAge" />
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save_data"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="@string/setting"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etLocation" />
-
-    <Button
-        android:id="@+id/btnRetrieve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/retrieve_data"
-        app:layout_constraintStart_toEndOf="@id/btnSave"
-        app:layout_constraintTop_toBottomOf="@id/etLocation" />
-    <!-- TODO: Update blank fragment layout -->
-    <Button
-        android:id="@+id/btnGetData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/get_data"
-        app:layout_constraintStart_toEndOf="@id/btnRetrieve"
-        app:layout_constraintTop_toBottomOf="@id/etLocation" />
+        app:layout_constraintTop_toBottomOf="@id/tvPlace" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
