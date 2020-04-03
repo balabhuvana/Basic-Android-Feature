@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
     <TextView
-        android:id="@+id/tvPassword"
+        android:id="@+id/tvJob"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_20"
@@ -55,14 +55,14 @@
         app:layout_constraintTop_toBottomOf="@id/tvUserName" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etJob"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_5"
         android:layout_marginLeft="@dimen/dimen_5"
         android:hint="@string/enterJob"
         android:inputType="textPassword"
-        app:layout_constraintLeft_toRightOf="@id/tvPassword"
+        app:layout_constraintLeft_toRightOf="@id/tvJob"
         app:layout_constraintTop_toBottomOf="@+id/etUserName" />
 
     <Button
@@ -74,7 +74,7 @@
         android:layout_marginTop="@dimen/dimen_20"
         android:text="@string/login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etJob" />
 
     <Button
         android:id="@+id/btnClear"
@@ -85,6 +85,6 @@
         android:layout_marginTop="@dimen/dimen_20"
         android:text="@string/clear"
         app:layout_constraintLeft_toRightOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etJob" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
