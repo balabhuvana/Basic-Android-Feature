@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.example.basic_android_feature.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class HomeFragment : Fragment() {
+
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +23,28 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        homeViewModel = (activity as HomeActivity).homeViewModel
+        homeViewModel.selectUserList()
+
+        observeUserListOfFragment()
+    }
+
+    private fun observeUserListOfFragment() {
+        homeViewModel.observeUserList()
+            ?.observe(viewLifecycleOwner, Observer { userInfoList ->
+                if (userInfoList.isNotEmpty()) {
+                    val userInfo = userInfoList[0]
+                    tvUserNameValue.text = userInfo.userName
+                    tvJobValue.text = userInfo.userJob
+                    tvUserIdValue.text = userInfo.userNetId
+                    tvCreatedAtValue.text = userInfo.userCreatedAt
+                }
+            })
     }
 
 }

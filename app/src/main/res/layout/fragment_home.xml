@@ -79,6 +79,28 @@
         app:layout_constraintStart_toEndOf="@+id/tvUserName"
         app:layout_constraintTop_toBottomOf="@+id/tvJobValue" />
 
+    <TextView
+        android:id="@+id/tvCreatedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_120"
+        android:layout_marginLeft="@dimen/dimen_80"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="@string/createdAt"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserIdValue" />
+
+    <TextView
+        android:id="@+id/tvCreatedAtValue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="Asborteorhiy"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toEndOf="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserIdValue" />
+
     <Button
         android:id="@+id/btnSetting"
         android:layout_width="wrap_content"
@@ -87,6 +109,6 @@
         android:text="@string/setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUserId" />
+        app:layout_constraintTop_toBottomOf="@id/tvCreatedAtValue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
