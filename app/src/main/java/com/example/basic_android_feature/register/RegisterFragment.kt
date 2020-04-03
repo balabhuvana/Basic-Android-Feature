@@ -1,15 +1,15 @@
 package com.example.basic_android_feature.register
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.example.basic_android_feature.R
-import com.example.basic_android_feature.login.LoginActivity
+import com.example.basic_android_feature.model.UserInfo
 import kotlinx.android.synthetic.main.fragment_register.*
 
 /**
@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_register.*
 class RegisterFragment : Fragment() {
 
     private var isValidUserData: Boolean = false
+    private lateinit var registrationViewModel: RegistrationViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,19 +31,41 @@ class RegisterFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        registrationViewModel = (activity as RegisterActivity).registrationViewModel
+
         btnRegister.setOnClickListener {
             if (validateUserData()) {
-                startActivity(Intent(activity, LoginActivity::class.java))
-                activity?.finish()
+                val userInfo = UserInfo()
+                userInfo.userName = etUserName.text.toString()
+                userInfo.userJob = etJob.text.toString()
+                registrationViewModel.insertUserDataViaViewModel(userInfo)
+                clearTheField()
             } else {
-                Toast.makeText(activity, R.string.error_data_empty, Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, R.string.error_data_empty, Toast.LENGTH_LONG)
+                    .show()
             }
+        }
+
+        btnClear.setOnClickListener {
+            registrationViewModel.selectUserList()
+            registrationViewModel.observeUserList()
+                ?.observe(activity as RegisterActivity, Observer { userInfoList ->
+                    if (userInfoList.isNotEmpty()) {
+                        var userInfo = userInfoList.get(0)
+                        clearTheField()
+                    }
+                })
         }
     }
 
-    fun validateUserData(): Boolean {
+    private fun validateUserData(): Boolean {
         isValidUserData = etUserName.text.isNotEmpty()
         isValidUserData = etJob.text.isNotEmpty()
         return isValidUserData
+    }
+
+    private fun clearTheField() {
+        etUserName.text.clear()
+        etJob.text.clear()
     }
 }

@@ -1,4 +1,4 @@
-package com.example.basic_android_feature.splash
+package com.example.basic_android_feature.register
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,7 +8,7 @@ import com.example.basic_android_feature.repository.UserRepository
 import com.example.basic_android_feature.room.UserDao
 import com.example.basic_android_feature.room.UserRoomDatabase
 
-class SplashViewModel(application: Application) : AndroidViewModel(application) {
+class RegistrationViewModel(application: Application) : AndroidViewModel(application) {
 
     private var userRepository: UserRepository? = null
     private var userListData: LiveData<List<UserInfo>>? = null
@@ -20,6 +20,10 @@ class SplashViewModel(application: Application) : AndroidViewModel(application) 
         userRepository = UserRepository(userDao)
     }
 
+    fun insertUserDataViaViewModel(userInfo: UserInfo) {
+        userRepository?.registerUserInfoInRoom(userInfo)
+    }
+
     fun selectUserList() {
         userListData = userRepository?.selectUserList()
     }
@@ -27,5 +31,4 @@ class SplashViewModel(application: Application) : AndroidViewModel(application) 
     fun observeUserList(): LiveData<List<UserInfo>>? {
         return userListData
     }
-
 }
