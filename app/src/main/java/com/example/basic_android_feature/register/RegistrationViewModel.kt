@@ -21,7 +21,7 @@ class RegistrationViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun insertUserDataViaViewModel(userInfo: UserInfo) {
-        userRepository?.registerUserInfoInRoom(userInfo)
+        userRepository?.registerPostReqForUserInfoAndInsertIntoRoom(userInfo)
     }
 
     fun selectUserList() {
