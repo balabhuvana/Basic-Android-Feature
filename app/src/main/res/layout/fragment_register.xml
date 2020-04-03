@@ -10,9 +10,9 @@
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_150"
         android:text="@string/register"
         android:textSize="@dimen/text_size_24"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,73 +42,28 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSignUp" />
 
     <TextView
-        android:id="@+id/tvPassword"
+        android:id="@+id/tvJob"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginLeft="@dimen/dimen_20"
         android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/password"
+        android:text="@string/job"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUserName" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etJob"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_5"
         android:layout_marginLeft="@dimen/dimen_5"
-        android:hint="@string/enterPassword"
-        android:inputType="textPassword"
-        app:layout_constraintLeft_toRightOf="@id/tvPassword"
+        android:hint="@string/enterJob"
+        android:inputType="text"
+        app:layout_constraintLeft_toRightOf="@id/tvJob"
         app:layout_constraintTop_toBottomOf="@+id/etUserName" />
 
-    <TextView
-        android:id="@+id/tvAge"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginLeft="@dimen/dimen_20"
-        android:layout_marginTop="@dimen/dimen_25"
-        android:text="@string/age"
-        android:textSize="@dimen/text_size_16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPassword" />
-
-    <EditText
-        android:id="@+id/etAge"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginLeft="@dimen/dimen_5"
-        android:hint="@string/enterAge"
-        android:inputType="number"
-        app:layout_constraintLeft_toRightOf="@id/tvPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-    <TextView
-        android:id="@+id/tvPlace"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginLeft="@dimen/dimen_20"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/place"
-        android:textSize="@dimen/text_size_16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAge" />
-
-    <EditText
-        android:id="@+id/etPlace"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginLeft="@dimen/dimen_5"
-        android:hint="@string/enterPlace"
-        android:inputType="text"
-        app:layout_constraintLeft_toRightOf="@id/tvPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etAge" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -119,7 +74,7 @@
         android:layout_marginTop="@dimen/dimen_20"
         android:text="@string/register"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPlace" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJob" />
 
     <Button
         android:id="@+id/btnClear"
@@ -130,7 +85,7 @@
         android:layout_marginTop="@dimen/dimen_20"
         android:text="@string/clear"
         app:layout_constraintLeft_toRightOf="@+id/btnRegister"
-        app:layout_constraintTop_toBottomOf="@+id/tvPlace" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJob" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

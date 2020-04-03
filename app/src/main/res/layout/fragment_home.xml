@@ -10,7 +10,7 @@
         android:id="@+id/tvSample"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_250"
+        android:layout_marginTop="@dimen/dimen_150"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,48 +36,48 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSample" />
 
     <TextView
-        android:id="@+id/tvAge"
+        android:id="@+id/tvJob"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_120"
         android:layout_marginLeft="@dimen/dimen_80"
         android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/age"
+        android:text="@string/job"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <TextView
-        android:id="@+id/tvAgeValue"
+        android:id="@+id/tvJobValue"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_20"
-        android:text="35"
+        android:text="Mechanic"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toEndOf="@+id/tvUserName"
         app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <TextView
-        android:id="@+id/tvPlace"
+        android:id="@+id/tvUserId"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_120"
         android:layout_marginLeft="@dimen/dimen_80"
         android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/place"
+        android:text="@string/userId"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJob" />
 
     <TextView
-        android:id="@+id/tvPlaceValue"
+        android:id="@+id/tvUserIdValue"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_20"
-        android:text="Salem"
+        android:text="9876"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toEndOf="@+id/tvUserName"
-        app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJobValue" />
 
     <Button
         android:id="@+id/btnSetting"
@@ -87,6 +87,6 @@
         android:text="@string/setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPlace" />
+        app:layout_constraintTop_toBottomOf="@id/tvUserId" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

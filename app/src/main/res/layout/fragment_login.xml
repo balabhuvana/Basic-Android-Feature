@@ -49,7 +49,7 @@
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginLeft="@dimen/dimen_20"
         android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/password"
+        android:text="@string/job"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUserName" />
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_5"
         android:layout_marginLeft="@dimen/dimen_5"
-        android:hint="@string/enterPassword"
+        android:hint="@string/enterJob"
         android:inputType="textPassword"
         app:layout_constraintLeft_toRightOf="@id/tvPassword"
         app:layout_constraintTop_toBottomOf="@+id/etUserName" />
