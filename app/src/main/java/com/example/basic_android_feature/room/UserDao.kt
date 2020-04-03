@@ -1,5 +1,7 @@
 package com.example.basic_android_feature.room
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,5 +15,5 @@ interface UserDao {
     fun insertUser(user: UserInfo)
 
     @Query("SELECT * from user_table")
-    fun selectAllUser(): List<UserInfo>
+    fun selectAllUser(): LiveData<List<UserInfo>>
 }
