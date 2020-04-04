@@ -29,4 +29,7 @@ class UserInfo {
     @ColumnInfo(name = "user_created_at")
     var userCreatedAt: String = ""
 
+    @ColumnInfo(name = "user_logined")
+    var isUserLogined: Boolean = false
+
 }

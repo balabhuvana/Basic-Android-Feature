@@ -28,4 +28,5 @@
     <string name="error_data_empty">Field should not be empty</string>
     <string name="userId">User ID:</string>
     <string name="createdAt">Created At</string>
+    <string name="logout">Logout</string>
 </resources>

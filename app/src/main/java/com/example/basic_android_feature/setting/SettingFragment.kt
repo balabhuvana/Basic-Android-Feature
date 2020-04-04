@@ -3,13 +3,16 @@ package com.example.basic_android_feature.setting
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.example.basic_android_feature.R
 import com.example.basic_android_feature.home.HomeActivity
+import com.example.basic_android_feature.home.HomeFragment
+import com.example.basic_android_feature.login.LoginActivity
+import com.example.basic_android_feature.login.LoginFragment
 import com.example.basic_android_feature.register.RegisterActivity
 import kotlinx.android.synthetic.main.fragment_setting.*
 
@@ -33,6 +36,12 @@ class SettingFragment : Fragment() {
 
         settingViewModel = (activity as HomeActivity).settingViewModel
 
+        btnLogout.setOnClickListener {
+            settingViewModel.userLogout(HomeFragment.userInfoValue!!)
+            settingViewModel.selectSpecificUser(LoginFragment.userId!!)
+            observerSpecificUser()
+        }
+
         btnUnregister.setOnClickListener {
             settingViewModel.unRegisterUser()
             settingViewModel.selectUserList()
@@ -48,6 +57,16 @@ class SettingFragment : Fragment() {
                     activity?.finish()
                 }
             })
+    }
+
+    private fun observerSpecificUser() {
+        settingViewModel.observeUserInfo().observe(viewLifecycleOwner, Observer { userInfo ->
+            if (!userInfo.isUserLogined) {
+                val intent = Intent(activity, LoginActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            }
+        })
     }
 
 }

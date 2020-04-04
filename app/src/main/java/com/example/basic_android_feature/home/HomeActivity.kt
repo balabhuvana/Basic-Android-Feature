@@ -1,7 +1,7 @@
 package com.example.basic_android_feature.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.basic_android_feature.R
 import com.example.basic_android_feature.setting.SettingViewModel
 

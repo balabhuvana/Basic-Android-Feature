@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.example.basic_android_feature.R
 import com.example.basic_android_feature.home.HomeActivity
 import com.example.basic_android_feature.model.UserInfo
+import com.example.basic_android_feature.util.ConstantUtil
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
@@ -41,9 +42,10 @@ class LoginFragment : Fragment() {
 
         btnLogin.setOnClickListener {
             if (validateUserData()) {
-                val intent = Intent(activity, HomeActivity::class.java)
-                startActivity(intent)
-                activity?.finish()
+                userInfo.isUserLogined = true
+                loginViewModel.updateUserLoginStatus(userInfo)
+                loginViewModel.selectSpecificUser(userInfo.uid)
+                observerSpecificUser()
             }
         }
     }
@@ -63,6 +65,21 @@ class LoginFragment : Fragment() {
         isValidUserData = etUserName.text.isNotEmpty()
         isValidUserData = etJob.text.isNotEmpty()
         return isValidUserData
+    }
+
+    private fun observerSpecificUser() {
+        loginViewModel.observeUserInfo().observe(viewLifecycleOwner, Observer { userInfo ->
+            if (userInfo.isUserLogined) {
+                userId = userInfo.uid
+                val intent = Intent(activity, HomeActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            }
+        })
+    }
+
+    companion object {
+        var userId: Int? = null
     }
 
 }

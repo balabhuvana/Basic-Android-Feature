@@ -9,6 +9,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     private var userListData: LiveData<List<UserInfo>>? = null
 
+    private lateinit var userInfoLiveData: LiveData<UserInfo>
 
     fun selectUserList() {
         userListData = userRepository?.selectUserList()
@@ -16,5 +17,17 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     fun observeUserList(): LiveData<List<UserInfo>>? {
         return userListData
+    }
+
+    fun updateUserLoginStatus(userInfo: UserInfo) {
+        userRepository?.updateUserLoginStatusInRoom(userInfo)
+    }
+
+    fun selectSpecificUser(userId: Int) {
+        userInfoLiveData = userRepository?.selectSpecificUserFromRoom(userId)!!
+    }
+
+    fun observeUserInfo(): LiveData<UserInfo> {
+        return userInfoLiveData
     }
 }

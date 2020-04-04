@@ -17,6 +17,8 @@ class UserRepository(private var userDao: UserDao) {
     private var userListData: LiveData<List<UserInfo>> =
         MutableLiveData()
 
+    private lateinit var userInfo: LiveData<UserInfo>
+
     private var retrofitService = RetrofitService()
 
     fun selectUserList(): LiveData<List<UserInfo>> {
@@ -47,6 +49,17 @@ class UserRepository(private var userDao: UserDao) {
         GlobalScope.launch {
             userDao.deleteAllUser()
         }
+    }
+
+    fun updateUserLoginStatusInRoom(userInfo: UserInfo) {
+        GlobalScope.launch {
+            userDao.updateUserLoginStatus(userInfo)
+        }
+    }
+
+    fun selectSpecificUserFromRoom(userId: Int): LiveData<UserInfo> {
+        userInfo = userDao.selectSpecificUser(userId)
+        return userInfo
     }
 
 }
