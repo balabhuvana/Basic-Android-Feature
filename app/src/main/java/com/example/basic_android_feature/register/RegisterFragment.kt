@@ -38,6 +38,8 @@ class RegisterFragment : Fragment() {
 
         btnRegister.setOnClickListener {
             if (validateUserData()) {
+                progressLoad.visibility = View.VISIBLE
+                mainRegisterContent.visibility = View.GONE
                 val userInfo = UserInfo()
                 userInfo.userName = etUserName.text.toString()
                 userInfo.userJob = etJob.text.toString()
@@ -71,12 +73,14 @@ class RegisterFragment : Fragment() {
         registrationViewModel.observeUserList()
             ?.observe(viewLifecycleOwner, Observer { userInfoList ->
                 if (userInfoList.isNotEmpty()) {
-                    val userInfo = userInfoList.get(0)
+                    progressLoad.visibility = View.GONE
+                    val userInfo = userInfoList[0]
                     Log.i("----> R ", "Name : " + userInfo.userName)
                     Log.i("----> R ", "Job : " + userInfo.userJob)
                     Log.i("----> R ", "Id : " + userInfo.userNetId)
                     Log.i("----> R ", "Created At : " + userInfo.userCreatedAt)
                     startActivity(Intent(activity, LoginActivity::class.java))
+                    activity?.finish()
                 }
             })
     }

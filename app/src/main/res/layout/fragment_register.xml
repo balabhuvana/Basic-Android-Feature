@@ -3,89 +3,108 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".register.RegisterFragment">
 
-    <TextView
-        android:id="@+id/tvSignUp"
+    <ProgressBar
+        android:id="@+id/progressLoad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_150"
-        android:text="@string/register"
-        android:textSize="@dimen/text_size_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="100dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainRegisterContent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginLeft="@dimen/dimen_20"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/userName"
-        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSignUp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/etUserName"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginLeft="@dimen/dimen_5"
-        android:layout_marginTop="@dimen/dimen_5"
-        android:hint="@string/enterUserName"
-        android:inputType="text"
-        app:layout_constraintLeft_toRightOf="@id/tvUserName"
-        app:layout_constraintTop_toBottomOf="@+id/tvSignUp" />
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textSize="@dimen/text_size_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvJob"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginLeft="@dimen/dimen_20"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/job"
-        android:textSize="@dimen/text_size_16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/userName"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSignUp" />
 
-    <EditText
-        android:id="@+id/etJob"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginLeft="@dimen/dimen_5"
-        android:hint="@string/enterJob"
-        android:inputType="text"
-        app:layout_constraintLeft_toRightOf="@id/tvJob"
-        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:hint="@string/enterUserName"
+            android:inputType="text"
+            app:layout_constraintLeft_toRightOf="@id/tvUserName"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignUp" />
+
+        <TextView
+            android:id="@+id/tvJob"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/job"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+        <EditText
+            android:id="@+id/etJob"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:hint="@string/enterJob"
+            android:inputType="text"
+            app:layout_constraintLeft_toRightOf="@id/tvJob"
+            app:layout_constraintTop_toBottomOf="@+id/etUserName" />
 
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_80"
-        android:layout_marginLeft="@dimen/dimen_80"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJob" />
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_80"
+            android:layout_marginLeft="@dimen/dimen_80"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/register"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvJob" />
 
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_40"
-        android:layout_marginLeft="@dimen/dimen_40"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:text="@string/clear"
-        app:layout_constraintLeft_toRightOf="@+id/btnRegister"
-        app:layout_constraintTop_toBottomOf="@+id/tvJob" />
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_40"
+            android:layout_marginLeft="@dimen/dimen_40"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:text="@string/clear"
+            app:layout_constraintLeft_toRightOf="@+id/btnRegister"
+            app:layout_constraintTop_toBottomOf="@+id/tvJob" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
