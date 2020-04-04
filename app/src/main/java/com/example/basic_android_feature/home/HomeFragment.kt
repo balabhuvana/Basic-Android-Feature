@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.basic_android_feature.R
+import com.example.basic_android_feature.setting.SettingFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -32,6 +33,11 @@ class HomeFragment : Fragment() {
         homeViewModel.selectUserList()
 
         observeUserListOfFragment()
+
+        btnSetting.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.myHomeContainer, SettingFragment()).commit()
+        }
     }
 
     private fun observeUserListOfFragment() {

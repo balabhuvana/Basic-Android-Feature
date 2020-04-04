@@ -43,6 +43,7 @@ class LoginFragment : Fragment() {
             if (validateUserData()) {
                 val intent = Intent(activity, HomeActivity::class.java)
                 startActivity(intent)
+                activity?.finish()
             }
         }
     }

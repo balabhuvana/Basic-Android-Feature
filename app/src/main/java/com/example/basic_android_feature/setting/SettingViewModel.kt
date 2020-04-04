@@ -1,4 +1,4 @@
-package com.example.basic_android_feature.home
+package com.example.basic_android_feature.setting
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,7 +8,7 @@ import com.example.basic_android_feature.repository.UserRepository
 import com.example.basic_android_feature.room.UserDao
 import com.example.basic_android_feature.room.UserRoomDatabase
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class SettingViewModel(application: Application) : AndroidViewModel(application) {
 
     private var userRepository: UserRepository? = null
     private var userListData: LiveData<List<UserInfo>>? = null
@@ -20,6 +20,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         userRepository = UserRepository(userDao)
     }
 
+    fun unRegisterUser() {
+        userRepository?.unRegisterAllUser()
+    }
+
     fun selectUserList() {
         userListData = userRepository?.selectUserList()
     }
@@ -27,4 +31,5 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun observeUserList(): LiveData<List<UserInfo>>? {
         return userListData
     }
+
 }

@@ -43,4 +43,10 @@ class UserRepository(private var userDao: UserDao) {
         })
     }
 
+    fun unRegisterAllUser() {
+        GlobalScope.launch {
+            userDao.deleteAllUser()
+        }
+    }
+
 }
